@@ -14,7 +14,7 @@ router.post("/api/create-post", authMiddleware, async (req: Request, res: Respon
         return res.status(400).json({ message: validation.error.issues });
     }
 
-    const post = postService.createPost(req.body);
+    const post = await postService.createPost(req.body);
     return res.status(201).json({ message: `Post created successfully. ${post}` });
 })
 

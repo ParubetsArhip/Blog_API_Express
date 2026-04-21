@@ -9,6 +9,8 @@ const app = express()
 async function main() {
     app.use(express.json())
 
+    app.use('', )
+
     app.use("/", postRouter)
 
     app.use((req: Request, res: Response) => {

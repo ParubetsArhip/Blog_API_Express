@@ -10,7 +10,7 @@ if (!url) {
 }
 
 export default defineConfig({
-    schema: "prisma/schema.prisma",
+    schema: "./src/prisma/schema.prisma",
     migrations: {
         path: "prisma/migrations",
     },

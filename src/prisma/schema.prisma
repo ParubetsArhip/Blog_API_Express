@@ -14,15 +14,18 @@ datasource db {
 }
 
 model User {
-  id       String   @id @default(cuid())
-  email    String
-  password String
-  createAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  email     String
+  password  String
+  createdAt DateTime @default(now())
+  posts     Post[] // у пользователя есть список (массив) постов // “свяжи пользователя со всеми Post, где authorId = user.id” // “дай мне все посты, которые принадлежат этому пользователю”
 }
 
 model Post {
-  id       String   @id @default(cuid())
-  title    String
-  content  String
-  createAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  authordId String // хранит ID пользователя
+  author    User     @relation(fields: [authordId], references: [id]) // по authorId можно получить весь объект пользователя (posts)
 }
