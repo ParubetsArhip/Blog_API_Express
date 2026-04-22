@@ -5,7 +5,7 @@
 
 generator client {
   provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  output   = "../../src/generated/prisma"
 }
 
 datasource db {
@@ -15,7 +15,7 @@ datasource db {
 
 model User {
   id        String   @id @default(cuid())
-  email     String
+  email     String   @unique
   password  String
   createdAt DateTime @default(now())
   posts     Post[] // у пользователя есть список (массив) постов // “свяжи пользователя со всеми Post, где authorId = user.id” // “дай мне все посты, которые принадлежат этому пользователю”
@@ -26,6 +26,6 @@ model Post {
   title     String
   content   String
   createdAt DateTime @default(now())
-  authordId String // хранит ID пользователя
-  author    User     @relation(fields: [authordId], references: [id]) // по authorId можно получить весь объект пользователя (posts)
+  authorId  String // хранит ID пользователя
+  author    User     @relation(fields: [authorId], references: [id]) // по authorId можно получить весь объект пользователя (posts)
 }

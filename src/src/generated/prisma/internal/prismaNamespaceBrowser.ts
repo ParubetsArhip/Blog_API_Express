@@ -84,7 +84,7 @@ export const PostScalarFieldEnum = {
   title: 'title',
   content: 'content',
   createdAt: 'createdAt',
-  authordId: 'authordId'
+  authorId: 'authorId'
 } as const
 
 export type PostScalarFieldEnum = (typeof PostScalarFieldEnum)[keyof typeof PostScalarFieldEnum]

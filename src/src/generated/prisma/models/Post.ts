@@ -29,7 +29,7 @@ export type PostMinAggregateOutputType = {
   title: string | null
   content: string | null
   createdAt: Date | null
-  authordId: string | null
+  authorId: string | null
 }
 
 export type PostMaxAggregateOutputType = {
@@ -37,7 +37,7 @@ export type PostMaxAggregateOutputType = {
   title: string | null
   content: string | null
   createdAt: Date | null
-  authordId: string | null
+  authorId: string | null
 }
 
 export type PostCountAggregateOutputType = {
@@ -45,7 +45,7 @@ export type PostCountAggregateOutputType = {
   title: number
   content: number
   createdAt: number
-  authordId: number
+  authorId: number
   _all: number
 }
 
@@ -55,7 +55,7 @@ export type PostMinAggregateInputType = {
   title?: true
   content?: true
   createdAt?: true
-  authordId?: true
+  authorId?: true
 }
 
 export type PostMaxAggregateInputType = {
@@ -63,7 +63,7 @@ export type PostMaxAggregateInputType = {
   title?: true
   content?: true
   createdAt?: true
-  authordId?: true
+  authorId?: true
 }
 
 export type PostCountAggregateInputType = {
@@ -71,7 +71,7 @@ export type PostCountAggregateInputType = {
   title?: true
   content?: true
   createdAt?: true
-  authordId?: true
+  authorId?: true
   _all?: true
 }
 
@@ -152,7 +152,7 @@ export type PostGroupByOutputType = {
   title: string
   content: string
   createdAt: Date
-  authordId: string
+  authorId: string
   _count: PostCountAggregateOutputType | null
   _min: PostMinAggregateOutputType | null
   _max: PostMaxAggregateOutputType | null
@@ -181,7 +181,7 @@ export type PostWhereInput = {
   title?: Prisma.StringFilter<"Post"> | string
   content?: Prisma.StringFilter<"Post"> | string
   createdAt?: Prisma.DateTimeFilter<"Post"> | Date | string
-  authordId?: Prisma.StringFilter<"Post"> | string
+  authorId?: Prisma.StringFilter<"Post"> | string
   author?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
@@ -190,7 +190,7 @@ export type PostOrderByWithRelationInput = {
   title?: Prisma.SortOrder
   content?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  authordId?: Prisma.SortOrder
+  authorId?: Prisma.SortOrder
   author?: Prisma.UserOrderByWithRelationInput
 }
 
@@ -202,7 +202,7 @@ export type PostWhereUniqueInput = Prisma.AtLeast<{
   title?: Prisma.StringFilter<"Post"> | string
   content?: Prisma.StringFilter<"Post"> | string
   createdAt?: Prisma.DateTimeFilter<"Post"> | Date | string
-  authordId?: Prisma.StringFilter<"Post"> | string
+  authorId?: Prisma.StringFilter<"Post"> | string
   author?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
 
@@ -211,7 +211,7 @@ export type PostOrderByWithAggregationInput = {
   title?: Prisma.SortOrder
   content?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  authordId?: Prisma.SortOrder
+  authorId?: Prisma.SortOrder
   _count?: Prisma.PostCountOrderByAggregateInput
   _max?: Prisma.PostMaxOrderByAggregateInput
   _min?: Prisma.PostMinOrderByAggregateInput
@@ -225,7 +225,7 @@ export type PostScalarWhereWithAggregatesInput = {
   title?: Prisma.StringWithAggregatesFilter<"Post"> | string
   content?: Prisma.StringWithAggregatesFilter<"Post"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Post"> | Date | string
-  authordId?: Prisma.StringWithAggregatesFilter<"Post"> | string
+  authorId?: Prisma.StringWithAggregatesFilter<"Post"> | string
 }
 
 export type PostCreateInput = {
@@ -241,7 +241,7 @@ export type PostUncheckedCreateInput = {
   title: string
   content: string
   createdAt?: Date | string
-  authordId: string
+  authorId: string
 }
 
 export type PostUpdateInput = {
@@ -257,7 +257,7 @@ export type PostUncheckedUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  authordId?: Prisma.StringFieldUpdateOperationsInput | string
+  authorId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type PostCreateManyInput = {
@@ -265,7 +265,7 @@ export type PostCreateManyInput = {
   title: string
   content: string
   createdAt?: Date | string
-  authordId: string
+  authorId: string
 }
 
 export type PostUpdateManyMutationInput = {
@@ -280,7 +280,7 @@ export type PostUncheckedUpdateManyInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  authordId?: Prisma.StringFieldUpdateOperationsInput | string
+  authorId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type PostListRelationFilter = {
@@ -298,7 +298,7 @@ export type PostCountOrderByAggregateInput = {
   title?: Prisma.SortOrder
   content?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  authordId?: Prisma.SortOrder
+  authorId?: Prisma.SortOrder
 }
 
 export type PostMaxOrderByAggregateInput = {
@@ -306,7 +306,7 @@ export type PostMaxOrderByAggregateInput = {
   title?: Prisma.SortOrder
   content?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  authordId?: Prisma.SortOrder
+  authorId?: Prisma.SortOrder
 }
 
 export type PostMinOrderByAggregateInput = {
@@ -314,7 +314,7 @@ export type PostMinOrderByAggregateInput = {
   title?: Prisma.SortOrder
   content?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  authordId?: Prisma.SortOrder
+  authorId?: Prisma.SortOrder
 }
 
 export type PostCreateNestedManyWithoutAuthorInput = {
@@ -407,7 +407,7 @@ export type PostScalarWhereInput = {
   title?: Prisma.StringFilter<"Post"> | string
   content?: Prisma.StringFilter<"Post"> | string
   createdAt?: Prisma.DateTimeFilter<"Post"> | Date | string
-  authordId?: Prisma.StringFilter<"Post"> | string
+  authorId?: Prisma.StringFilter<"Post"> | string
 }
 
 export type PostCreateManyAuthorInput = {
@@ -445,7 +445,7 @@ export type PostSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   title?: boolean
   content?: boolean
   createdAt?: boolean
-  authordId?: boolean
+  authorId?: boolean
   author?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["post"]>
 
@@ -454,7 +454,7 @@ export type PostSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   title?: boolean
   content?: boolean
   createdAt?: boolean
-  authordId?: boolean
+  authorId?: boolean
   author?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["post"]>
 
@@ -463,7 +463,7 @@ export type PostSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   title?: boolean
   content?: boolean
   createdAt?: boolean
-  authordId?: boolean
+  authorId?: boolean
   author?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["post"]>
 
@@ -472,10 +472,10 @@ export type PostSelectScalar = {
   title?: boolean
   content?: boolean
   createdAt?: boolean
-  authordId?: boolean
+  authorId?: boolean
 }
 
-export type PostOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "content" | "createdAt" | "authordId", ExtArgs["result"]["post"]>
+export type PostOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "content" | "createdAt" | "authorId", ExtArgs["result"]["post"]>
 export type PostInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   author?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -496,7 +496,7 @@ export type $PostPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     title: string
     content: string
     createdAt: Date
-    authordId: string
+    authorId: string
   }, ExtArgs["result"]["post"]>
   composites: {}
 }
@@ -925,7 +925,7 @@ export interface PostFieldRefs {
   readonly title: Prisma.FieldRef<"Post", 'String'>
   readonly content: Prisma.FieldRef<"Post", 'String'>
   readonly createdAt: Prisma.FieldRef<"Post", 'DateTime'>
-  readonly authordId: Prisma.FieldRef<"Post", 'String'>
+  readonly authorId: Prisma.FieldRef<"Post", 'String'>
 }
     
 

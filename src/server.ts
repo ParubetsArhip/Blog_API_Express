@@ -3,13 +3,14 @@ import express, {NextFunction} from "express"
 import { Response, Request } from "express"
 import {postRouter} from "@/controllers/post.controller";
 import { prisma } from "@/client";
+import {authRouter} from "@/controllers/auth.controller";
 
 const app = express()
 
 async function main() {
     app.use(express.json())
 
-    app.use('', )
+    app.use('/', authRouter)
 
     app.use("/", postRouter)
 
