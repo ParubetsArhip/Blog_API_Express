@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { prisma } from "@/client";
 import {User} from "@/generated/prisma/client";
 import bcrypt from "bcrypt";
@@ -46,7 +47,7 @@ export class AuthService {
 
         const token = jwt.sign( // тут мы создаем jwt токен если человек входит то ему даеться токен на 1 день
             {userId: exisingUser.id},
-            process.env.SECRET_KEY!,
+            process.env.JWT_SECRET!,
             { expiresIn: "1d" }
         )
 

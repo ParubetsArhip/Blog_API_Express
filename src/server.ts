@@ -1,9 +1,12 @@
-import "dotenv/config"
+import dotenv from "dotenv";
 import express, {NextFunction} from "express"
 import { Response, Request } from "express"
 import {postRouter} from "@/controllers/post.controller";
 import { prisma } from "@/client";
 import {authRouter} from "@/controllers/auth.controller";
+dotenv.config();
+
+const PORT = process.env.PORT
 
 const app = express()
 
@@ -22,7 +25,7 @@ async function main() {
         res.status(500).json({ message: err.message })
     })
 
-    app.listen(4200, () => {
+    app.listen(PORT || 4200, () => {
         console.log("Server running successfully")
     })
 }
