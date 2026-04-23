@@ -14,14 +14,27 @@ router.post("/api/create-post", authMiddleware, async (req: Request, res: Respon
         return res.status(400).json({ message: validation.error.issues });
     }
 
-    const post = await postService.createPost(req.body);
-    return res.status(201).json({ message: `Post created successfully. ${post}` });
+    // мы достаём ID текущего авторизованного пользователя
+    const userId = (req as any).user.userId;
+
+    // ...validation.data = взять title и content
+    // userId = добавить пользователя
+    const post = await postService.createPost({
+        ...validation.data,
+        userId
+    })
+
+    return res.status(201).json({
+        message: "Post successfully created",
+        post
+    });
 })
 
 router.get("/api/my-posts", authMiddleware, async (req: Request, res: Response) => {
-    const posts = await postService.getPosts()
+    const userId = (req as any).user.userId;
+
+    const posts = await postService.getPosts(userId)
     return res.status(200).json(posts);
 })
 
 export const postRouter = router;
-
