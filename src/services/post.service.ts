@@ -9,7 +9,7 @@ export class PostService {
             return this.prisma.post.create({ // создаем пост и сохраняем его в бд
                 data: {
                     title: post.title,
-                    content: post.title,
+                    content: post.content,
                     authorId: post.userId // а это привязывает человека к этому посту то есть только он его сделал и все
                 }
             })
