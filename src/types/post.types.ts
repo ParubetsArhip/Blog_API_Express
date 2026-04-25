@@ -4,3 +4,6 @@ interface ICreatePost {
     userId: string;
 }
 
+interface IDeletePost {
+
+}

@@ -22,15 +22,57 @@ export class PostService {
         try {
             return this.prisma.post.findMany({ // тут мы уже берем все посты одно человека
                 where: {
-                    authorId: userId // тут мы берем только те посты где автор этот пользователь
+                    authorId: userId // тут мы берем только те посты, где автор этот пользователь
                 }
             })
         } catch (error) {
             throw new Error('Error getting posts');
         }
     }
+
+    async deletePost(postId: string, userId: string): Promise<Post> {
+        try {
+            const post = await this.prisma.post.findUnique({ // тут мы берем пост, который написал пользователь
+                where: { id: postId}
+            })
+
+            if (!post) {
+                throw new Error('No post found.'); // проверяем есть ли такой пост вообще
+            }
+
+            if (post.authorId !== userId) {
+                throw new Error('Cannot delete post.'); // проверяем принадлежит ли этот пост данному человеку
+            }
+
+                return await this.prisma.post.delete({ // удаляем этот пост
+                where: { id: postId }
+            })
+        } catch (error) {
+            throw new Error('Error deleting post');
+        }
+    }
 }
 
+
+
+
+
+
+
+
+// ⚡ Вся логика в одной цепочке
+// найти пост
+// проверить существует ли
+// проверить владельца
+// если не совпадает — запрет
+// если совпадает — удалить
+// вернуть результат
+
+
+// 1. взять postId из req.params
+// 2. взять userId из JWT (authMiddleware)
+// 3. проверить что пост принадлежит userId
+// 4. удалить
 
 
 

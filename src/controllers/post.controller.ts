@@ -37,4 +37,31 @@ router.get("/api/my-posts", authMiddleware, async (req: Request, res: Response) 
     return res.status(200).json(posts);
 })
 
+router.delete("/api/delete/:id", authMiddleware, async (req: Request<{ id: string }>, res: Response) => {
+    const postId = req.params.id; // берем id поста который надо удалить
+    const userId = (req as any).user.userId; // берем id человека, который делает запрос
+
+    const result = await postService.deletePost(postId, userId)
+
+    return res.status(200).json({
+        message: "Post successfully deleted",
+        result
+    });
+})
+
 export const postRouter = router;
+
+
+
+
+
+// 1. клиент → DELETE /api/delete/123
+// 2. middleware проверяет JWT
+// 3. достаёт userId
+// 4. берёт postId из URL
+// 5. отправляет в service
+// 6. service проверяет:
+//     - есть ли пост
+// - принадлежит ли userId
+// 7. если да → удаляет
+// 8. возвращает ответ
